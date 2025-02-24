@@ -1,21 +1,12 @@
 server:
   port: 8761
-  ssl:
-    enabled: true
-    key-store: classpath:eureka-keystore.jks  # Đường dẫn đến keystore
-    key-store-password: changeit
-    key-store-type: JKS
-    key-alias: eureka
 
 eureka:
   instance:
     hostname: discovery.vothanhtuyen.id.vn
-    non-secure-port-enabled: false
-    secure-port-enabled: true
-    secure-port: 8761
-    homePageUrl: https://discovery.vothanhtuyen.id.vn:8761/
-    statusPageUrl: https://discovery.vothanhtuyen.id.vn:8761/info
-    healthCheckUrl: https://discovery.vothanhtuyen.id.vn:8761/health
+    homePageUrl: https://${eureka.instance.hostname}/
+    statusPageUrl: https://${eureka.instance.hostname}/info
+    healthCheckUrl: https://${eureka.instance.hostname}/health
   client:
     registerWithEureka: false
     fetchRegistry: false
